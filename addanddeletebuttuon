@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .list-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .edit-button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul id="itemList">
+        <li class="list-item">Item 1 <button class="delete-button">Delete</button> <button class="edit-button">Edit</button></li>
+        <li class="list-item">Item 2 <button class="delete-button">Delete</button> <button class="edit-button">Edit</button></li>
+        <li class="list-item">Item 3 <button class="delete-button">Delete</button> <button class="edit-button">Edit</button></li>
+    </ul>
+
+    <script>
+        // Function to remove a list item when clicking the delete button
+        function removeListItem(event) {
+            const listItem = event.target.parentNode;
+            const itemList = listItem.parentNode;
+            itemList.removeChild(listItem);
+        }
+
+        // Add click event listeners to all delete buttons
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', removeListItem);
+        });
+    </script>
+</body>
+</html>
